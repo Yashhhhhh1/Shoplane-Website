@@ -14,7 +14,7 @@ var cartItems = JSON.parse(localStorage.getItem("Add Cart"));
 
 var cLength = Object.values(cartItems);
 
-for(var i = 1; i <= cLength.length; i++){
+for(var i = 0; i <= cLength.length; i++){
     // console.log(cartItems[i]);
 }
 
@@ -22,8 +22,8 @@ var cartCount = document.getElementById("items-count");
 
 var count = 0;
 
-for(let i = 0; i < Object.values(cartItems).length; i++){
-    count += Object.values(cartItems)[i].quantity;
+for(let i = 0; i < cLength.length; i++){
+    count += cLength[i].quantity;
 }
 cartCount.innerText = count;
 
@@ -32,29 +32,29 @@ var itemDetailsContainer = document.getElementById("item-details-container");
 var totalAmount = document.getElementById("total-amount");
 var totalItems = document.getElementById("total-items");
 
-for(var i = 1; i <= cLength.length; i++){
+for(var i = 0; i < cLength.length; i++){
     
     var itemDetails = document.createElement("div");
     itemDetails.className = "item-details";
 
     var productImg = document.createElement("img");
     productImg.className = "product-img";
-    productImg.src = cartItems[i].preview;
+    productImg.src = cLength[i].preview;
 
     var productDetails = document.createElement("div");
     productDetails.className = "product-details";
 
     var itemName = document.createElement("h2");
     itemName.className = "item-name"
-    itemName.innerText = cartItems[i].name;
+    itemName.innerText = cLength[i].name;
 
     var itemQuantity = document.createElement("p");
     itemQuantity.className = "item-quantity"
-    itemQuantity.innerText = `x${cartItems[i].quantity}`;
+    itemQuantity.innerText = `x${cLength[i].quantity}`;
 
     var itemPrice = document.createElement("p");
     itemPrice.className = "item-price"
-    itemPrice.innerText = `Amount: ${cartItems[i].price}`;
+    itemPrice.innerText = `Amount: ${cLength[i].price}`;
 
     itemDetailsContainer.appendChild(itemDetails);
     itemDetails.append(productImg, productDetails);
@@ -63,17 +63,18 @@ for(var i = 1; i <= cLength.length; i++){
 
 var totalPrice = 0;
 var finalQuantity = 0;
+console.log(cLength)
+for(var i = 0; i < cLength.length; i++){
+    
+    var Price = cLength[i].price;
 
-for(var i = 1; i <= cLength.length; i++){
-    var Price = cartItems[i].price;
-
-    if(cartItems[i].quantity > 1){
-        totalPrice += Price * cartItems[i].quantity;
+    if( cLength[i].quantity > 1){
+        totalPrice += Price *  cLength[i].quantity;
     }else{
         totalPrice += Price;
     }
 
-    var quantity = cartItems[i].quantity;
+    var quantity = cLength[i].quantity;
     finalQuantity += quantity;
 
 }

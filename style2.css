@@ -530,7 +530,6 @@
         height: auto;
         width: 100vw;
         padding: 0 25px;
-        border: 1px solid black;
         margin: 70px 0;
     }
     
@@ -972,6 +971,7 @@
         position: fixed;
         top: 0;
         right: 0;
+        display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 10px 0px;
@@ -1138,9 +1138,10 @@
     }
     
     #footer-details{
-        width: 90%;
-        flex-wrap: nowrap;
-        justify-content: space-evenly;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-start;
         margin-bottom: 10px;
         padding: 0;
     }
@@ -1170,7 +1171,6 @@
     #checkout-details-container{
         height: auto;
         flex-wrap: nowrap;
-        border: 1px solid black;
     }
 
     #checkout-tag{

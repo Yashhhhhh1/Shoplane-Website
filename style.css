@@ -523,7 +523,7 @@ Checkout Page
     margin-top: 100px;
 }
 
-h3,p{
+.confirmation-text{
     text-align: center;
     font-size: 3vh;
     margin-bottom: 5px;
